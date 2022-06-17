@@ -5,7 +5,7 @@ import Fact from './components/Fact.js';
 import { useState } from 'react';
 
 function App() {
-  const [randomFact, setRandomFact] = useState(null);
+  const [randomFact, setRandomFact] = useState('');
 
   return (
     <Grid>
@@ -16,14 +16,7 @@ function App() {
         </Title>
       </header>
       <main>
-        {randomFact ? (
-          <Fact randomFact={randomFact} />
-        ) : (
-          <section>
-            Explanation Lorem, ipsum dolor sit amet consectetur adipisicing
-            elit. Fugiat, ratione?
-          </section>
-        )}
+        <Fact randomFact={randomFact} />
         <Form getRandomFact={getRandomFact} />
       </main>
       <footer>Links to API</footer>
@@ -59,6 +52,7 @@ const Grid = styled.div`
     padding: 0 20px;
     display: grid;
     grid-template-rows: 1fr 1fr;
+    width: 100%;
     max-width: 530px;
     height: 100%;
     align-items: center;
