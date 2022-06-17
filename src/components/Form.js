@@ -1,6 +1,6 @@
-import Container from './Container.styled.js';
+import styled from 'styled-components';
 
-export default function Form({ getRandomJoke }) {
+export default function Form({ getRandomFact }) {
   const categories = [
     'animal',
     'career',
@@ -16,17 +16,16 @@ export default function Form({ getRandomJoke }) {
   ];
 
   return (
-    <Container onSubmit={handleSubmit}>
-      <h2>Get Random Joke</h2>
+    <Container onSubmit={handleSubmit} aria-labelledby="title">
       <label htmlFor="name">Enter your name</label>
       <input id="name" type="text" name="name" />
-      <label htmlFor="categories">Get Random Joke by Category</label>
+      <label htmlFor="categories">Get Random Fact by Category</label>
       <select name="categories" id="categories">
         {categories.map((category, index) => {
           return <option key={index}>{category}</option>;
         })}
       </select>
-      <button type="submit">Get Random Joke</button>
+      <button type="submit">Get Random Fact</button>
     </Container>
   );
 
@@ -50,6 +49,13 @@ export default function Form({ getRandomJoke }) {
     const { name, categories } = form.elements;
     const url = generateUrl(name.value, categories.value);
     console.log(url);
-    getRandomJoke(url);
+    getRandomFact(url);
   }
 }
+
+const Container = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 45px;
+`;

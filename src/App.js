@@ -1,35 +1,40 @@
 import styled from 'styled-components';
 import Form from './components/Form.js';
-import Search from './components/Search.js';
 import Title from './components/Title.styled.js';
-import Joke from './components/Joke.js';
+import Fact from './components/Fact.js';
 import { useState } from 'react';
 
 function App() {
-  const [randomJoke, setRandomJoke] = useState(null);
+  const [randomFact, setRandomFact] = useState(null);
 
   return (
     <Grid>
-      <Title>Chuck Norris Random Jokes</Title>
+      <header>
+        <Title id="title">
+          Chuck Norris <br /> Random Facts:
+          <br />
+        </Title>
+      </header>
       <main>
-        <section>
-          Explanation Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Fugiat, ratione?
-        </section>
-        {randomJoke && <Joke randomJoke={randomJoke} />}
-        <Form getRandomJoke={getRandomJoke} />
-        <Search />
+        {randomFact ? (
+          <Fact randomFact={randomFact} />
+        ) : (
+          <section>
+            Explanation Lorem, ipsum dolor sit amet consectetur adipisicing
+            elit. Fugiat, ratione?
+          </section>
+        )}
+        <Form getRandomFact={getRandomFact} />
       </main>
       <footer>Links to API</footer>
     </Grid>
   );
 
-  async function getRandomJoke(url) {
+  async function getRandomFact(url) {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      setRandomJoke(data);
-      console.log(randomJoke);
+      setRandomFact(data);
     } catch (error) {
       console.log(error);
     }
@@ -40,18 +45,27 @@ export default App;
 
 const Grid = styled.div`
   height: 100%;
-  max-width: 530px;
-  margin: 0 auto;
   display: grid;
-  grid-template-rows: 100px 1fr 100px;
+  grid-template-rows: auto 1fr auto;
+
+  header {
+    display: grid;
+    place-items: center;
+  }
 
   main {
+    place-self: center;
     overflow-y: scroll;
-    padding: 20px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    max-width: 530px;
+    height: 100%;
+    align-items: center;
   }
 
   footer {
-    background-color: gold;
-    color: white;
+    background-color: var(--dark-color);
+    color: var(--primary-color);
   }
 `;
