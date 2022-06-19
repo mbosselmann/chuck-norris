@@ -60,4 +60,9 @@ const Main = styled.main`
   height: 100%;
   gap: 10px;
   align-items: center;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
