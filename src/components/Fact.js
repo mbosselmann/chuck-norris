@@ -34,8 +34,8 @@ const Section = styled.section`
   border: 5px dashed var(--primary-accent-color);
   height: 100%;
   margin-top: 20px;
-  display: flex;
-  align-items: center;
+  display: grid;
+  place-items: center;
 
   p {
     animation: ${bounce} 2s ease 0s 1 normal forwards;
