@@ -41,20 +41,22 @@ const Container = styled.p`
 const Menu = styled.select`
   appearance: none;
   border: 3px solid var(--dark-color);
-  background-color: transparent;
+  background-color: #fff;
   border-radius: 5px;
   width: 100%;
 
   &:focus {
     outline: 3px solid var(--secondary-color);
   }
+
+  @media (prefers-color-scheme: dark) {
+    border: none;
+  }
 `;
 
 const Wrapper = styled.div`
   &::after {
     content: '';
-    font: 17px 'Consolas', monospace;
-    color: #333;
     background-color: var(--dark-color);
     width: 0.8rem;
     height: 0.6rem;

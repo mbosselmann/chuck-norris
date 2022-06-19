@@ -60,8 +60,13 @@ const Container = styled.form`
 const Input = styled.input`
   border: 3px solid var(--dark-color);
   border-radius: 5px;
+  background-color: #fff;
 
   &:focus {
     outline: 3px solid var(--secondary-color);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    border: none;
   }
 `;

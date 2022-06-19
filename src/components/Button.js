@@ -21,6 +21,7 @@ const Box = styled.div`
     border-radius: 5px;
     font-family: 'Bangers', cursive;
     font-size: 1.5rem;
+    color: var(--text-color);
     width: 100%;
     position: absolute;
     top: -4px;
