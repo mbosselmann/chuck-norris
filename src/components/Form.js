@@ -1,41 +1,17 @@
 import styled from 'styled-components';
+import Button from './Button.js';
+import Select from './SelectMenu.js';
+import Label from './Label.styled.js';
 
 export default function Form({ getRandomFact }) {
-  const categories = [
-    'no category selected',
-    'animal',
-    'career',
-    'dev',
-    'food',
-    'history',
-    'money',
-    'music',
-    'science',
-    'sport',
-    'travel',
-  ];
-
   return (
     <Container onSubmit={handleSubmit} aria-labelledby="title">
       <p>
-        <label htmlFor="name">Your name to get a customised fact</label>
-        <input id="name" type="text" name="name" />
+        <Label htmlFor="name">Enter name to get customised facts</Label>
+        <Input id="name" type="text" name="name" />
       </p>
-      <p>
-        <label htmlFor="categories">Select category to get a fact from</label>
-        <select name="categories" id="categories">
-          {categories.map((category, index) => {
-            return (
-              <option key={index} value={category}>
-                {category}
-              </option>
-            );
-          })}
-        </select>
-      </p>
-      <Box>
-        <Button type="submit">Get Random Fact</Button>
-      </Box>
+      <Select />
+      <Button />
     </Container>
   );
 
@@ -81,25 +57,11 @@ const Container = styled.form`
   }
 `;
 
-const Button = styled.button`
-  background-color: var(--secondary-color);
-  border: none;
+const Input = styled.input`
+  border: 3px solid var(--dark-color);
   border-radius: 5px;
-  font-family: 'Bangers', cursive;
-  font-size: 1.5rem;
-  width: 100%;
-  position: absolute;
-  top: -4px;
 
-  &:active {
-    top: 0;
+  &:focus {
+    outline: 3px solid var(--secondary-color);
   }
-`;
-
-const Box = styled.div`
-  background-color: var(--dark-color);
-  position: relative;
-  height: 3rem;
-  border-radius: 5px;
-  margin-top: 5px;
 `;
