@@ -21,7 +21,7 @@ export default function Fact({ randomFact }) {
 const bounce = keyframes`
 	0% {
 		opacity: 0;
-		transform: translateY(250px);
+		transform: translateY(-80px);
 	}
 
 	100% {
