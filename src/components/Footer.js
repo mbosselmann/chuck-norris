@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Link from './Link.js';
 import Span from './Span.styled.js';
 
 export default function Footer() {
@@ -7,13 +8,13 @@ export default function Footer() {
       <List role="list">
         <li>
           Chuck Norris Facts by
-          <a
+          <Link
             href="https://api.chucknorris.io/#!"
             target="_blank"
             rel="noreferrer"
           >
             chucknorris.io
-          </a>
+          </Link>
         </li>
         <li>
           This website is a birthday present for <Span>Stefan Korder</Span>.
