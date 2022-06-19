@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import Span from './Span.styled.js';
 
 export default function Fact({ randomFact }) {
   return (
@@ -7,8 +8,10 @@ export default function Fact({ randomFact }) {
         <p>{randomFact.value}</p>
       ) : (
         <p>
-          Explanation Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Fugiat, ratione?
+          <Span>Welcome!</Span> <br /> To get a random fact about Chuck Norris,
+          click the button below. If you want to get a random fact about Chuck
+          Norris with your name, enter it in the corresponding input field first
+          and then click the button.
         </p>
       )}
     </Section>
@@ -30,9 +33,12 @@ const Section = styled.section`
   padding: 25px;
   border: 5px dashed var(--primary-accent-color);
   height: 100%;
-  font-size: 1.2rem;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
 
   p {
     animation: ${bounce} 2s ease 0s 1 normal forwards;
+    margin: 0;
   }
 `;
