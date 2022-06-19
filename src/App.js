@@ -3,6 +3,7 @@ import Form from './components/Form.js';
 import Title from './components/Title.styled.js';
 import Fact from './components/Fact.js';
 import { useState } from 'react';
+import Footer from './components/Footer.js';
 
 function App() {
   const [randomFact, setRandomFact] = useState('');
@@ -19,7 +20,7 @@ function App() {
         <Fact randomFact={randomFact} />
         <Form getRandomFact={getRandomFact} />
       </main>
-      <footer>Links to API</footer>
+      <Footer />
     </Grid>
   );
 
@@ -40,6 +41,8 @@ const Grid = styled.div`
   height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  max-width: 530px;
+  margin: 0 auto;
 
   header {
     display: grid;
@@ -53,13 +56,8 @@ const Grid = styled.div`
     display: grid;
     grid-template-rows: 1fr 1fr;
     width: 100%;
-    max-width: 530px;
     height: 100%;
+    gap: 10px;
     align-items: center;
-  }
-
-  footer {
-    background-color: var(--dark-color);
-    color: var(--primary-color);
   }
 `;
