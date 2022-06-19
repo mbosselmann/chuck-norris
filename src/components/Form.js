@@ -16,19 +16,22 @@ export default function Form({ getRandomFact }) {
   );
 
   function generateUrl(name, category) {
-    if (!name) {
-      return 'https://api.chucknorris.io/jokes/random?category=animal,career,dev,food,history,money,music,science,sport,travel';
-    }
     if (name && category === 'no category selected') {
       return `https://api.chucknorris.io/jokes/random?name=${name}&category=animal,career,dev,food,history,money,music,science,sport,travel`;
     }
     if (name && category) {
       return `https://api.chucknorris.io/jokes/random?name=${name}&category=${category}`;
     }
+    if (!name && category === 'no category selected') {
+      return 'https://api.chucknorris.io/jokes/random?category=animal,career,dev,food,history,money,music,science,sport,travel';
+    }
     if (category === 'no category selected') {
       return 'https://api.chucknorris.io/jokes/random?category=animal,career,dev,food,history,money,music,science,sport,travel';
     }
     if (category) {
+      return `https://api.chucknorris.io/jokes/random?category=${category}`;
+    }
+    if (!name && category) {
       return `https://api.chucknorris.io/jokes/random?category=${category}`;
     }
   }
